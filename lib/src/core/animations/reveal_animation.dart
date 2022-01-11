@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:navigation_drawer_challenge/src/core/constants/constants.dart';
+
 class RevealAnimation extends AnimatedWidget {
   const RevealAnimation({
     Key? key,
@@ -12,7 +14,7 @@ class RevealAnimation extends AnimatedWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      color: const Color(0xFF2C48B8),
+      color: kAccentColor,
       height: height.value,
     );
   }

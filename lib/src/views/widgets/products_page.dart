@@ -3,11 +3,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:navigation_drawer_challenge/src/core/constants/constants.dart';
 
 import 'package:navigation_drawer_challenge/src/core/providers/providers.dart';
-import 'package:navigation_drawer_challenge/src/views/widgets/like_button.dart';
 
-import 'filter_by_button.dart';
+import 'filter_by_title.dart';
+import 'like_button.dart';
 import 'search_button.dart';
 
 class ProductsPage extends StatelessWidget {
@@ -19,7 +20,7 @@ class ProductsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const FilterBy(),
+        title: const FilterByTitle(),
         actions: const [SearchButton()],
       ),
       body: const ProductsGrid(),
@@ -33,71 +34,81 @@ class ProductsGrid extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final products = ref.watch(filteredProductsProvider);
+    final childAspectRatio = ref.watch(
+      childAspectRatioProvider(MediaQuery.of(context).size.height),
+    );
 
     return Padding(
-      padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+      padding: const EdgeInsets.only(top: 15),
       child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisSpacing: 15,
-          mainAxisSpacing: 15,
+          mainAxisSpacing: 7.5,
           crossAxisCount: 2,
-          childAspectRatio: 1 / 2.2,
+          childAspectRatio: childAspectRatio,
         ),
         itemCount: products.length,
         itemBuilder: (_, index) {
           final product = products[index];
-          return Column(
-            children: [
-              Expanded(
-                flex: 13,
-                child: _ImageRotationAnimation(
-                  image: product.image,
-                  index: index,
+          return Padding(
+            padding: EdgeInsets.only(
+              left: index.isOdd ? 0 : 20,
+              right: index.isEven ? 0 : 20,
+            ),
+            child: Column(
+              children: [
+                Expanded(
+                  flex: 14,
+                  child: _ImageRotationAnimation(
+                    image: product.image,
+                    index: index,
+                  ),
                 ),
-              ),
-              Expanded(
-                flex: 6,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const SizedBox(height: 12),
-                    _TextUpAnimation(
-                      child: Text(
-                        product.name,
-                        style: GoogleFonts.libreBaskerville(
-                          fontSize: 18.5,
-                          fontWeight: FontWeight.bold,
+                Expanded(
+                  flex: 6,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const SizedBox(height: 15),
+                      _TextUpAnimation(
+                        child: Text(
+                          product.name,
+                          style: GoogleFonts.libreBaskerville(
+                            fontSize: kNameFontSize,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
+                        index: index,
                       ),
-                      index: index,
-                    ),
-                    const SizedBox(height: 7),
-                    _TextUpAnimation(
-                      child: Text(
-                        product.subname,
-                        style: GoogleFonts.libreBaskerville(
-                          fontSize: 18.5,
-                          fontWeight: FontWeight.bold,
+                      const SizedBox(height: 5),
+                      _TextUpAnimation(
+                        child: Text(
+                          product.subname,
+                          style: GoogleFonts.libreBaskerville(
+                            fontSize: kNameFontSize,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
+                        index: index,
                       ),
-                      index: index,
-                    ),
-                    const SizedBox(height: 15),
-                    _TextUpAnimation(
-                      child: Text(
-                        '${product.price} USD',
-                        style: GoogleFonts.nunito(
-                          color: const Color(0xFF4559A9),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                      const SizedBox(height: 12),
+                      _TextUpAnimation(
+                        child: Text(
+                          '${product.price} USD',
+                          style: GoogleFonts.nunito(
+                            color: kPriceColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: kPriceFontSize,
+                          ),
                         ),
+                        index: index,
                       ),
-                      index: index,
-                    ),
-                  ],
-                ),
-              )
-            ],
+                    ],
+                  ),
+                )
+              ],
+            ),
           );
         },
       ),

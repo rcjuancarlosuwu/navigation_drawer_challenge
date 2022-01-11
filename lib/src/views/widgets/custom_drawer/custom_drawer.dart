@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:navigation_drawer_challenge/src/core/animations/animations.dart';
 import 'package:navigation_drawer_challenge/src/core/providers/providers.dart';
+
 import 'widgets/widgets.dart';
 
 class CustomDrawer extends ConsumerWidget {
@@ -12,10 +13,12 @@ class CustomDrawer extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final controller = ref.watch(drawerAnimationControllerProvider);
+    final drawerAnimationController = ref.watch(
+      drawerAnimationControllerProvider,
+    );
 
     return DrawerSlider(
-      animation: controller.drawerSliderAnimation,
+      animation: drawerAnimationController.drawerSliderAnimation,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SizedBox.expand(

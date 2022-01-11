@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:navigation_drawer_challenge/src/core/theme/app_theme.dart';
+
+import 'package:navigation_drawer_challenge/src/core/constants/constants.dart';
 
 class SearchButton extends StatelessWidget {
   const SearchButton({
@@ -13,21 +14,33 @@ class SearchButton extends StatelessWidget {
       child: IconButton(
         padding: const EdgeInsets.only(),
         onPressed: () {},
-        icon: Container(
-          padding: const EdgeInsets.all(14),
-          decoration: BoxDecoration(
-              color: Colors.indigo,
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: kAccentColor.withOpacity(.2),
-                  offset: const Offset(0, 5),
-                  blurRadius: 4,
-                ),
-              ]),
-          child: Image.asset('assets/icons/search.png'),
-        ),
+        icon: const _SearchIcon(),
       ),
+    );
+  }
+}
+
+class _SearchIcon extends StatelessWidget {
+  const _SearchIcon({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: Colors.indigo,
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: kAccentColor.withOpacity(.2),
+            offset: const Offset(0, 5),
+            blurRadius: 4,
+          ),
+        ],
+      ),
+      child: Image.asset('assets/icons/search.png'),
     );
   }
 }

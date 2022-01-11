@@ -17,8 +17,8 @@ class DrawerAnimationController {
         drawerIconButtonAnimation = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(.2, 1),
-            reverseCurve: const Interval(0, .7),
+            curve: const Interval(.15, 1),
+            reverseCurve: const Interval(.05, .6),
           ),
         ),
         drawerSliderAnimation = Tween<Offset>(
@@ -27,7 +27,7 @@ class DrawerAnimationController {
         ).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(.2, .35),
+            curve: const Interval(.185, .35),
             reverseCurve: const Interval(0, .05),
           ),
         );
@@ -48,7 +48,7 @@ class DrawerAnimationController {
     ).animate(CurvedAnimation(
       parent: controller,
       curve: Interval(charBegin, charEnd),
-      reverseCurve: const Interval(.25, .3),
+      reverseCurve: const Interval(.075, .2),
     ));
   }
 
@@ -64,7 +64,7 @@ class DrawerAnimationController {
     ).animate(CurvedAnimation(
       parent: controller,
       curve: Interval(begin, end),
-      reverseCurve: const Interval(0, .1),
+      reverseCurve: const Interval(0, .2),
     ));
   }
 
@@ -80,7 +80,7 @@ class DrawerAnimationController {
     ).animate(CurvedAnimation(
       parent: controller,
       curve: Interval(begin, end),
-      reverseCurve: const Interval(0, .1),
+      reverseCurve: const Interval(0, .2),
     ));
   }
 

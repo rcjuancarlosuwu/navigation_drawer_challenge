@@ -2,7 +2,7 @@ import 'product_category_enum.dart';
 
 class Product {
   final String name;
-  final String subname;
+  final String subname; // todo: find a better way to animate bottom.
   final String price;
   final String image;
   final ProductCategory productCategory;

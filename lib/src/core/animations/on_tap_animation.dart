@@ -20,7 +20,7 @@ class OnTapAnimation extends AnimatedWidget {
           gradient: RadialGradient(
             colors: [
               Colors.transparent,
-              progress.value > .1 ? Colors.white : Colors.transparent,
+              progress.value > 0 ? Colors.white : Colors.transparent,
             ],
             stops: const [1, 1],
             radius: progress.value,

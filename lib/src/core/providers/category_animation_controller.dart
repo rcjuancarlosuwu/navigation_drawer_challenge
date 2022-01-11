@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:navigation_drawer_challenge/src/core/constants/constants.dart';
 
 class CategoryAnimationController {
@@ -10,14 +11,14 @@ class CategoryAnimationController {
       : onTapAnimation = Tween<double>(begin: 0, end: .6).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0, .15),
+            curve: const Interval(0, .2),
           ),
         ),
         hyphenMarginLeft =
             Tween<double>(begin: kHyphenMarginLeft, end: 0).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(.2, .5),
+            curve: const Interval(.2, .45),
           ),
         );
 
@@ -27,7 +28,7 @@ class CategoryAnimationController {
       end: width,
     ).animate(CurvedAnimation(
       parent: controller,
-      curve: const Interval(.25, .5),
+      curve: const Interval(.25, .45),
     ));
   }
 
@@ -52,7 +53,7 @@ class CategoryAnimationController {
       end: 0,
     ).animate(CurvedAnimation(
       parent: controller,
-      curve: const Interval(.6, .8),
+      curve: const Interval(.56, .79),
     ));
   }
 

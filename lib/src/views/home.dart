@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:navigation_drawer_challenge/src/core/constants/constants.dart';
 import 'package:navigation_drawer_challenge/src/core/providers/providers.dart';
 
@@ -33,9 +34,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return ProviderScope(
       overrides: [
-        mediaQuerySizeProvider.overrideWithValue(
-          MediaQuery.of(context).size,
-        ),
         drawerAnimationControllerProvider.overrideWithValue(
           DrawerAnimationController(drawerAnimationController),
         ),

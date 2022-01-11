@@ -6,7 +6,6 @@ import 'package:navigation_drawer_challenge/src/core/animations/animations.dart'
 import 'package:navigation_drawer_challenge/src/core/constants/constants.dart';
 import 'package:navigation_drawer_challenge/src/core/data/models/models.dart';
 import 'package:navigation_drawer_challenge/src/core/providers/providers.dart';
-import 'package:navigation_drawer_challenge/src/core/theme/app_theme.dart';
 
 class CustomDrawerOption extends ConsumerWidget {
   CustomDrawerOption({
@@ -21,16 +20,17 @@ class CustomDrawerOption extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final index = option.productCategory.index;
-    final canShow =
-        index == ref.watch(productCategoryOptionProvider).productCategory.index;
+    final productCategoryOption = ref.watch(productCategoryOptionProvider);
+    final canShow = index == productCategoryOption.productCategory.index;
 
     return GestureDetector(
       onTapDown: (details) {
         ref.read(topPanelHeightProvider.notifier).setHeight(_globalKey);
         ref.read(offsetOnTapProvider.notifier).state = details.localPosition;
         ref.read(productCategoryOptionProvider.notifier).state = option;
-        final drawerAnimationController =
-            ref.read(drawerAnimationControllerProvider);
+        final drawerAnimationController = ref.read(
+          drawerAnimationControllerProvider,
+        );
         if (drawerAnimationController.isCompleted) {
           ref.read(categoryAnimationControllerProvider).forward();
           ref.read(drawerAnimationControllerProvider).reverse();
@@ -73,12 +73,15 @@ class _AnimatedText extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final drawerAnimationController =
-        ref.watch(drawerAnimationControllerProvider);
-    final categoryAnimationController =
-        ref.watch(categoryAnimationControllerProvider);
+    final drawerAnimationController = ref.watch(
+      drawerAnimationControllerProvider,
+    );
+    final categoryAnimationController = ref.watch(
+      categoryAnimationControllerProvider,
+    );
+
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 30),
+      padding: const EdgeInsets.only(left: 60, top: 30, bottom: 30),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -87,7 +90,10 @@ class _AnimatedText extends ConsumerWidget {
               clipBehavior: Clip.antiAlias,
               child: SlideTransition(
                 position: drawerAnimationController.textUpAnimation(
-                    charIndex, length, index),
+                  charIndex,
+                  length,
+                  index,
+                ),
                 child: canShow
                     ? AnimatedBuilder(
                         animation: categoryAnimationController.controller,
@@ -99,17 +105,22 @@ class _AnimatedText extends ConsumerWidget {
                             chars[charIndex],
                             style: GoogleFonts.libreBaskerville(
                               color: Color.lerp(
-                                  kOptionTextColor, kPrimaryColor, t),
-                              fontSize: 30,
+                                fOptionTextColor,
+                                kPrimaryColor,
+                                t,
+                              ),
+                              fontSize: kDrawerOptionsFontSize,
                             ),
                           );
                         },
                       )
-                    : Text(chars[charIndex],
+                    : Text(
+                        chars[charIndex],
                         style: GoogleFonts.libreBaskerville(
-                          color: kOptionTextColor,
-                          fontSize: 30,
-                        )),
+                          color: fOptionTextColor,
+                          fontSize: kDrawerOptionsFontSize,
+                        ),
+                      ),
               ),
             ),
         ],
@@ -132,13 +143,14 @@ class _SlideFadeHyphen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final categoryAnimationController =
-        ref.watch(categoryAnimationControllerProvider);
+    final categoryAnimationController = ref.watch(
+      categoryAnimationControllerProvider,
+    );
+    final drawerAnimationController = ref.watch(
+      drawerAnimationControllerProvider,
+    );
 
-    final drawerAnimationController =
-        ref.watch(drawerAnimationControllerProvider);
-
-    final width = ref.watch(mediaQuerySizeProvider).width;
+    final width = MediaQuery.of(context).size.width;
 
     return SlideTransition(
       position: drawerAnimationController.hyphenSlideAnimation(index),
@@ -156,7 +168,7 @@ class _SlideFadeHyphen extends ConsumerWidget {
                       left: categoryAnimationController.hyphenMarginLeft.value,
                     ),
                     color: Color.lerp(
-                      kOptionTextColor,
+                      fOptionTextColor,
                       kPrimaryColor,
                       categoryAnimationController.onTapAnimation.value,
                     ),
@@ -167,7 +179,7 @@ class _SlideFadeHyphen extends ConsumerWidget {
                 height: kHyphenHeight,
                 width: kHyphenWidth,
                 margin: const EdgeInsets.only(left: kHyphenMarginLeft),
-                color: kOptionTextColor,
+                color: fOptionTextColor,
               ),
       ),
     );
@@ -185,14 +197,17 @@ class _OnTapDrawerOption extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final offset = ref.watch(offsetOnTapProvider);
-    final onTapAnimation =
-        ref.watch(categoryAnimationControllerProvider).onTapAnimation;
+    final categoryAnimationController = ref.watch(
+      categoryAnimationControllerProvider,
+    );
 
     return Positioned(
       top: offset.dy - 25,
       left: offset.dx - 25,
       child: canShow
-          ? OnTapAnimation(animation: onTapAnimation)
+          ? OnTapAnimation(
+              animation: categoryAnimationController.onTapAnimation,
+            )
           : const SizedBox.shrink(),
     );
   }

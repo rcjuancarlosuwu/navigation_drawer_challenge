@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class FilterBy extends StatelessWidget {
-  const FilterBy({
+class FilterByTitle extends StatelessWidget {
+  const FilterByTitle({
     Key? key,
   }) : super(key: key);
 
@@ -21,10 +21,7 @@ class FilterBy extends StatelessWidget {
               fontSize: 16,
             ),
           ),
-          const Icon(
-            Icons.keyboard_arrow_down_rounded,
-            color: Colors.black,
-          )
+          const Icon(Icons.keyboard_arrow_down_rounded, color: Colors.black)
         ],
       ),
     );

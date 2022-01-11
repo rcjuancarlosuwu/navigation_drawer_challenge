@@ -1,4 +1,4 @@
-part of 'providers.dart';
+part of '../providers.dart';
 
 class TopPanelHeight extends StateNotifier<double> {
   TopPanelHeight() : super(0.0);

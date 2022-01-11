@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:navigation_drawer_challenge/src/core/animations/animations.dart';
+import 'package:navigation_drawer_challenge/src/core/constants/constants.dart';
 import 'package:navigation_drawer_challenge/src/core/providers/providers.dart';
-import 'package:navigation_drawer_challenge/src/core/theme/app_theme.dart';
 
 class CustomDrawerButton extends ConsumerWidget {
   const CustomDrawerButton({
@@ -12,7 +12,9 @@ class CustomDrawerButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final controller = ref.watch(drawerAnimationControllerProvider);
+    final drawerAnimationController = ref.watch(
+      drawerAnimationControllerProvider,
+    );
 
     return Positioned(
       left: 5,
@@ -21,12 +23,12 @@ class CustomDrawerButton extends ConsumerWidget {
         padding: const EdgeInsets.only(),
         onPressed: () async {
           ref.read(categoryAnimationControllerProvider).reset();
-          controller.toggle();
+          drawerAnimationController.toggle();
         },
         icon: GradientAnimation(
-          animation: controller.drawerButtonSplash,
+          animation: drawerAnimationController.drawerButtonSplash,
           child: _IconAnimation(
-            animation: controller.drawerIconButtonAnimation,
+            animation: drawerAnimationController.drawerIconButtonAnimation,
           ),
         ),
       ),
@@ -51,7 +53,6 @@ class _IconAnimation extends AnimatedWidget {
             color: Color.lerp(
               Colors.black,
               kPrimaryColor,
-              // progress.value,
               (progress.value * 5).clamp(0, 1),
             ),
           )

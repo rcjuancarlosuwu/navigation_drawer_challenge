@@ -11,8 +11,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: kAppTitle,
       home: const Home(),
+      title: kAppTitle,
       theme: ChanelTheme.light,
     );
   }

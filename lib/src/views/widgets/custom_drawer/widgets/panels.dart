@@ -12,12 +12,14 @@ class TopPanel extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final height = ref.watch(topPanelHeightProvider);
-    final controller = ref.watch(categoryAnimationControllerProvider);
+    final categoryAnimationController = ref.watch(
+      categoryAnimationControllerProvider,
+    );
 
     return Positioned(
       top: 0,
       child: RevealAnimation(
-        animation: controller.revealAnimation(height),
+        animation: categoryAnimationController.revealAnimation(height),
       ),
     );
   }
@@ -30,13 +32,16 @@ class BottomPanel extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final height = ref.watch(bottomPanelHeightProvider);
-    final controller = ref.watch(categoryAnimationControllerProvider);
+    final height = ref.watch(
+      bottomPanelHeightProvider(MediaQuery.of(context).size.height),
+    );
+    final categoryAnimationController =
+        ref.watch(categoryAnimationControllerProvider);
 
     return Positioned(
       bottom: 0,
       child: RevealAnimation(
-        animation: controller.revealAnimation(height),
+        animation: categoryAnimationController.revealAnimation(height),
       ),
     );
   }

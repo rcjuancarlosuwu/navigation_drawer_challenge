@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:navigation_drawer_challenge/src/core/theme/app_theme.dart';
+import 'package:navigation_drawer_challenge/src/core/constants/constants.dart';
 
 class GradientAnimation extends AnimatedWidget {
   const GradientAnimation({
@@ -9,13 +9,14 @@ class GradientAnimation extends AnimatedWidget {
     required this.child,
   }) : super(key: key, listenable: animation);
 
-  Animation<double> get progress => listenable as Animation<double>;
   final Widget child;
+
+  Animation<double> get progress => listenable as Animation<double>;
 
   @override
   Widget build(BuildContext context) {
     return Transform.scale(
-      scale: progress.value > .01 ? .7 + progress.value : 1,
+      scale: progress.value > 0 ? .7 + progress.value : 1,
       child: Container(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
@@ -23,7 +24,7 @@ class GradientAnimation extends AnimatedWidget {
           gradient: RadialGradient(
             colors: [
               Colors.transparent,
-              progress.value > .1 ? kAccentColor : Colors.transparent,
+              progress.value > 0 ? kAccentColor : Colors.transparent,
             ],
             stops: const [1, 1],
             radius: progress.value,

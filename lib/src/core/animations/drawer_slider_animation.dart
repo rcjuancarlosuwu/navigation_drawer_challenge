@@ -7,14 +7,12 @@ class DrawerSlider extends AnimatedWidget {
     required this.child,
   }) : super(key: key, listenable: animation);
 
-  Animation<Offset> get offset => listenable as Animation<Offset>;
   final Widget child;
+
+  Animation<Offset> get offset => listenable as Animation<Offset>;
 
   @override
   Widget build(BuildContext context) {
-    return SlideTransition(
-      position: offset,
-      child: child,
-    );
+    return SlideTransition(position: offset, child: child);
   }
 }
