@@ -12,10 +12,6 @@ export 'category_animation_controller.dart';
 
 part 'state_notifiers/top_panel_height.dart';
 
-final mediaQuerySizeProvider = Provider<Size>(
-  (_) => throw UnimplementedError(),
-);
-
 final drawerAnimationControllerProvider = Provider<DrawerAnimationController>(
   (_) => throw UnimplementedError(),
 );
@@ -25,7 +21,7 @@ final categoryAnimationControllerProvider =
   (_) => throw UnimplementedError(),
 );
 
-final productCategoryOptionProvider = StateProvider((_) => options[0]);
+final productCategoryOptionProvider = StateProvider((_) => options.first);
 
 final offsetOnTapProvider = StateProvider((_) => const Offset(0, 0));
 
@@ -45,7 +41,9 @@ final childAspectRatioProvider = Provider.family<double, double>((ref, height) {
 });
 
 final filteredProductsProvider = StateProvider<List<Product>>((ref) {
-  final category = ref.watch(productCategoryOptionProvider).productCategory;
+  final category = ref.watch(
+    productCategoryOptionProvider.select((e) => e.productCategory),
+  );
   final filteredProducts =
       products.where((e) => e.productCategory == category).toList();
   return filteredProducts;

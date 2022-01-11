@@ -35,8 +35,9 @@ class BottomPanel extends ConsumerWidget {
     final height = ref.watch(
       bottomPanelHeightProvider(MediaQuery.of(context).size.height),
     );
-    final categoryAnimationController =
-        ref.watch(categoryAnimationControllerProvider);
+    final categoryAnimationController = ref.watch(
+      categoryAnimationControllerProvider,
+    );
 
     return Positioned(
       bottom: 0,

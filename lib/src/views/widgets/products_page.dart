@@ -50,6 +50,7 @@ class ProductsGrid extends ConsumerWidget {
         itemCount: products.length,
         itemBuilder: (_, index) {
           final product = products[index];
+
           return Padding(
             padding: EdgeInsets.only(
               left: index.isOdd ? 0 : 20,
@@ -57,6 +58,9 @@ class ProductsGrid extends ConsumerWidget {
             ),
             child: Column(
               children: [
+                /**
+                 * Image
+                 */
                 Expanded(
                   flex: 14,
                   child: _ImageRotationAnimation(
@@ -64,6 +68,9 @@ class ProductsGrid extends ConsumerWidget {
                     index: index,
                   ),
                 ),
+                /**
+                 * Name and price text
+                 */
                 Expanded(
                   flex: 6,
                   child: Column(
@@ -177,6 +184,9 @@ class _ImageRotationAnimation extends ConsumerWidget {
       },
       child: Stack(
         children: [
+          /**
+           * Image
+           */
           Positioned.fill(
             child: Container(
               color: Colors.white,
@@ -186,6 +196,9 @@ class _ImageRotationAnimation extends ConsumerWidget {
               ),
             ),
           ),
+          /**
+           * Like button
+           */
           const Positioned(
             bottom: 8,
             right: 10,

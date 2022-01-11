@@ -40,7 +40,7 @@ class _SearchIcon extends StatelessWidget {
           ),
         ],
       ),
-      child: Image.asset('assets/icons/search.png'),
+      child: Image.asset(kSearchIcon),
     );
   }
 }

@@ -62,7 +62,7 @@ class CategoryAnimationController {
     final end = .9 + (index * .033);
 
     return Tween<Offset>(
-      begin: const Offset(0, 30),
+      begin: const Offset(0, 40),
       end: const Offset(0, 0),
     ).animate(CurvedAnimation(
       parent: controller,

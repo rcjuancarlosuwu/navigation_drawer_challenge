@@ -20,3 +20,7 @@ const kSystemUiOverlayStyleDark = SystemUiOverlayStyle(
 
 // final
 final Color fOptionTextColor = kPrimaryColor.withOpacity(0.7);
+
+// assets
+const kSearchIcon = 'assets/icons/search.png';
+const kMenuIcon = 'assets/icons/menu.png';

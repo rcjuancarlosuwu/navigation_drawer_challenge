@@ -56,6 +56,6 @@ class _IconAnimation extends AnimatedWidget {
               (progress.value * 5).clamp(0, 1),
             ),
           )
-        : Image.asset('assets/icons/menu.png');
+        : Image.asset(kMenuIcon);
   }
 }

@@ -20,8 +20,10 @@ class CustomDrawerOption extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final index = option.productCategory.index;
-    final productCategoryOption = ref.watch(productCategoryOptionProvider);
-    final canShow = index == productCategoryOption.productCategory.index;
+    final currentIndex = ref.watch(
+      productCategoryOptionProvider.select((e) => e.productCategory.index),
+    );
+    final canShow = index == currentIndex;
 
     return GestureDetector(
       onTapDown: (details) {
@@ -50,6 +52,9 @@ class CustomDrawerOption extends ConsumerWidget {
             index: index,
             canShow: canShow,
           ),
+          /**
+           * On Tap Effect
+           */
           _OnTapDrawerOption(canShow: canShow)
         ],
       ),
