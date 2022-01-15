@@ -8,17 +8,17 @@ class CategoryAnimationController {
   final Animation<double> hyphenMarginLeft;
 
   CategoryAnimationController(this.controller)
-      : onTapAnimation = Tween<double>(begin: 0, end: .6).animate(
+      : onTapAnimation = Tween<double>(begin: 0, end: 0.6).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0, .2),
+            curve: const Interval(0, 0.2),
           ),
         ),
         hyphenMarginLeft =
             Tween<double>(begin: kHyphenMarginLeft, end: 0).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(.2, .45),
+            curve: const Interval(0.2, 0.45),
           ),
         );
 
@@ -28,7 +28,7 @@ class CategoryAnimationController {
       end: width,
     ).animate(CurvedAnimation(
       parent: controller,
-      curve: const Interval(.25, .45),
+      curve: const Interval(0.25, 0.45),
     ));
   }
 
@@ -36,8 +36,8 @@ class CategoryAnimationController {
     int charIndex,
     int length,
   ) {
-    const wordBegin = .25;
-    final charEnd = .35 + (charIndex * .0175);
+    const wordBegin = 0.25;
+    final charEnd = 0.35 + (charIndex * 0.0175);
     final charSection = ((charEnd - wordBegin) / length) * charIndex;
     final charBegin = wordBegin + charSection;
 
@@ -53,13 +53,13 @@ class CategoryAnimationController {
       end: 0,
     ).animate(CurvedAnimation(
       parent: controller,
-      curve: const Interval(.56, .79),
+      curve: const Interval(0.56, 0.79),
     ));
   }
 
   Animation<Offset> textUpAnimation(int index) {
-    final begin = .77 + (index * .02);
-    final end = .9 + (index * .033);
+    final begin = 0.77 + (index * 0.02);
+    final end = 0.9 + (index * 0.033);
 
     return Tween<Offset>(
       begin: const Offset(0, 40),
@@ -71,11 +71,11 @@ class CategoryAnimationController {
   }
 
   Animation<double> rotateAnimation(int index) {
-    final begin = .75 + (index * .05);
-    final end = .85 + (index * .05);
+    final begin = 0.75 + (index * 0.05);
+    final end = 0.85 + (index * 0.05);
 
     return Tween<double>(
-      begin: -.5,
+      begin: -0.5,
       end: 0,
     ).animate(CurvedAnimation(
       parent: controller,

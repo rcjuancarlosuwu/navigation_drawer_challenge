@@ -24,7 +24,10 @@ dev_dependencies:
 flutter:
   assets:
     - assets/icons/
+    - assets/images/jewellery/
+    - assets/images/leather_goods/
     - assets/images/perfumes/
+    - assets/images/skincare/
     - assets/images/wrist_watches/
 
   uses-material-design: true

@@ -34,7 +34,7 @@ class _SearchIcon extends StatelessWidget {
         shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(
-            color: kAccentColor.withOpacity(.2),
+            color: kAccentColor.withOpacity(0.2),
             offset: const Offset(0, 5),
             blurRadius: 4,
           ),

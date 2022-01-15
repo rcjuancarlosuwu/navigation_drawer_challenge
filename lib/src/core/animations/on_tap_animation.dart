@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:navigation_drawer_challenge/src/core/constants/constants.dart';
+
 class OnTapAnimation extends AnimatedWidget {
   const OnTapAnimation({
     Key? key,
@@ -11,10 +13,10 @@ class OnTapAnimation extends AnimatedWidget {
   @override
   Widget build(BuildContext context) {
     return Transform.scale(
-      scale: .6 + progress.value,
+      scale: 0.6 + progress.value,
       child: Container(
-        height: 50,
-        width: 50,
+        height: kTapEffectSize,
+        width: kTapEffectSize,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           gradient: RadialGradient(

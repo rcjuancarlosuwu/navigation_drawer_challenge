@@ -207,8 +207,8 @@ class _OnTapDrawerOption extends ConsumerWidget {
     );
 
     return Positioned(
-      top: offset.dy - 25,
-      left: offset.dx - 25,
+      top: offset.dy - kTapEffectSize / 2,
+      left: offset.dx - kTapEffectSize / 2,
       child: canShow
           ? OnTapAnimation(
               animation: categoryAnimationController.onTapAnimation,

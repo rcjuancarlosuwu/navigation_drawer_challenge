@@ -46,7 +46,7 @@ class _IconAnimation extends AnimatedWidget {
 
   @override
   Widget build(BuildContext context) {
-    return progress.value > .1
+    return progress.value > 0.1
         ? AnimatedIcon(
             icon: AnimatedIcons.menu_close,
             progress: progress,

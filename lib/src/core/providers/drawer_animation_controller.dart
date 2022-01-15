@@ -10,15 +10,15 @@ class DrawerAnimationController {
       : drawerButtonSplash = Tween<double>(begin: 0, end: .5).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0, .2),
-            reverseCurve: const Interval(.8, 1),
+            curve: const Interval(0, 0.2),
+            reverseCurve: const Interval(0.8, 1),
           ),
         ),
         drawerIconButtonAnimation = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(.15, 1),
-            reverseCurve: const Interval(.05, .6),
+            curve: const Interval(0.15, 1),
+            reverseCurve: const Interval(0.05, 0.6),
           ),
         ),
         drawerSliderAnimation = Tween<Offset>(
@@ -27,8 +27,8 @@ class DrawerAnimationController {
         ).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(.185, .35),
-            reverseCurve: const Interval(0, .05),
+            curve: const Interval(0.185, 0.35),
+            reverseCurve: const Interval(0, 0.05),
           ),
         );
 
@@ -37,8 +37,8 @@ class DrawerAnimationController {
     int length,
     int optionIndex,
   ) {
-    final wordBegin = .4 + (optionIndex * .05);
-    final charEnd = .6 + (optionIndex * .075) + (charIndex * .01);
+    final wordBegin = 0.4 + (optionIndex * 0.05);
+    final charEnd = 0.6 + (optionIndex * 0.075) + (charIndex * 0.01);
     final charSection = ((charEnd - wordBegin) / length) * charIndex;
     final charBegin = wordBegin + charSection;
 
@@ -48,15 +48,15 @@ class DrawerAnimationController {
     ).animate(CurvedAnimation(
       parent: controller,
       curve: Interval(charBegin, charEnd),
-      reverseCurve: const Interval(.075, .2),
+      reverseCurve: const Interval(0.075, 0.2),
     ));
   }
 
   Animation<double> hyphenOpacityAnimation(
     int hyphenIndex,
   ) {
-    final begin = .25 + (hyphenIndex * .05);
-    final end = .6 + (hyphenIndex * .075);
+    final begin = 0.25 + (hyphenIndex * 0.05);
+    final end = 0.6 + (hyphenIndex * 0.075);
 
     return Tween<double>(
       begin: 0,
@@ -64,15 +64,15 @@ class DrawerAnimationController {
     ).animate(CurvedAnimation(
       parent: controller,
       curve: Interval(begin, end),
-      reverseCurve: const Interval(0, .2),
+      reverseCurve: const Interval(0, 0.2),
     ));
   }
 
   Animation<Offset> hyphenSlideAnimation(
     int hyphenIndex,
   ) {
-    final begin = .25 + (hyphenIndex * .05);
-    final end = .6 + (hyphenIndex * .075);
+    final begin = 0.25 + (hyphenIndex * 0.05);
+    final end = 0.6 + (hyphenIndex * 0.075);
 
     return Tween<Offset>(
       begin: const Offset(-1, 0),
@@ -80,7 +80,7 @@ class DrawerAnimationController {
     ).animate(CurvedAnimation(
       parent: controller,
       curve: Interval(begin, end),
-      reverseCurve: const Interval(0, .2),
+      reverseCurve: const Interval(0, 0.2),
     ));
   }
 

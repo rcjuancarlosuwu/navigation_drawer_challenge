@@ -16,7 +16,7 @@ class GradientAnimation extends AnimatedWidget {
   @override
   Widget build(BuildContext context) {
     return Transform.scale(
-      scale: progress.value > 0 ? .7 + progress.value : 1,
+      scale: progress.value > 0 ? 0.7 + progress.value : 1,
       child: Container(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
