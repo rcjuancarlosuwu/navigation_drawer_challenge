@@ -8,4 +8,4 @@ https://user-images.githubusercontent.com/67658540/150878065-e1d24cd6-c9aa-4639-
 
 ## Live 
 
-[![Live](https://user-images.githubusercontent.com/67658540/150879136-6ce7e78c-59b7-4b55-8488-3c24dab2eecb.png)](https://www.youtube.com/embed/UzeaorFfTXI)
+[![Live](https://user-images.githubusercontent.com/67658540/150879136-6ce7e78c-59b7-4b55-8488-3c24dab2eecb.png)](https://www.youtube.com/watch?v=UzeaorFfTXI)
