@@ -1,36 +1,33 @@
 import 'package:flutter/material.dart';
 
-import 'package:navigation_drawer_challenge/src/core/constants/constants.dart';
+import '../constants/constants.dart' show tapEffectSize;
 
-class GradientAnimation extends AnimatedWidget {
-  const GradientAnimation({
+class ScaleSplahAnimation extends AnimatedWidget {
+  const ScaleSplahAnimation({
     Key? key,
     required Animation<double> animation,
-    required this.child,
   }) : super(key: key, listenable: animation);
-
-  final Widget child;
 
   Animation<double> get progress => listenable as Animation<double>;
 
   @override
   Widget build(BuildContext context) {
     return Transform.scale(
-      scale: progress.value > 0 ? 0.7 + progress.value : 1,
+      scale: 0.6 + progress.value,
       child: Container(
-        padding: const EdgeInsets.all(12),
+        height: tapEffectSize,
+        width: tapEffectSize,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           gradient: RadialGradient(
             colors: [
               Colors.transparent,
-              progress.value > 0 ? kAccentColor : Colors.transparent,
+              progress.value > 0 ? Colors.white : Colors.transparent,
             ],
             stops: const [1, 1],
             radius: progress.value,
           ),
         ),
-        child: child,
       ),
     );
   }

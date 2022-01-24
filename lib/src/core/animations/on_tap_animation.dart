@@ -1,32 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:navigation_drawer_challenge/src/core/constants/constants.dart';
+import '../constants/constants.dart' show tapEffectHalfSize;
+import '../providers/providers.dart';
 
-class OnTapAnimation extends AnimatedWidget {
+import 'animations.dart';
+
+class OnTapAnimation extends ConsumerWidget {
   const OnTapAnimation({
     Key? key,
-    required Animation<double> animation,
-  }) : super(key: key, listenable: animation);
+    required this.canAnimate,
+  }) : super(key: key);
 
-  Animation<double> get progress => listenable as Animation<double>;
+  final bool canAnimate;
 
   @override
-  Widget build(BuildContext context) {
-    return Transform.scale(
-      scale: 0.6 + progress.value,
-      child: Container(
-        height: kTapEffectSize,
-        width: kTapEffectSize,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          gradient: RadialGradient(
-            colors: [
-              Colors.transparent,
-              progress.value > 0 ? Colors.white : Colors.transparent,
-            ],
-            stops: const [1, 1],
-            radius: progress.value,
-          ),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final offset = ref.watch(offsetOnTapProvider);
+    final top = offset.dy - tapEffectHalfSize;
+    final left = offset.dx - tapEffectHalfSize;
+    final categoryAnimationController = ref.watch(
+      categoryAnimationControllerProvider,
+    );
+
+    return Positioned(
+      top: top,
+      left: left,
+      child: Visibility(
+        visible: canAnimate,
+        child: ScaleSplahAnimation(
+          animation: categoryAnimationController.onTapAnimation,
         ),
       ),
     );

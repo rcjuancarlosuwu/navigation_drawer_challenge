@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DrawerSlider extends AnimatedWidget {
-  const DrawerSlider({
+class SliderAnimation extends AnimatedWidget {
+  const SliderAnimation({
     Key? key,
     required Animation<Offset> animation,
     required this.child,

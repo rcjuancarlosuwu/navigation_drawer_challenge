@@ -7,9 +7,7 @@ import 'package:navigation_drawer_challenge/src/core/providers/providers.dart';
 import 'widgets/widgets.dart';
 
 class CustomDrawer extends ConsumerWidget {
-  const CustomDrawer({
-    Key? key,
-  }) : super(key: key);
+  const CustomDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, ref) {
@@ -17,7 +15,7 @@ class CustomDrawer extends ConsumerWidget {
       drawerAnimationControllerProvider,
     );
 
-    return DrawerSlider(
+    return SliderAnimation(
       animation: drawerAnimationController.drawerSliderAnimation,
       child: Scaffold(
         backgroundColor: Colors.transparent,

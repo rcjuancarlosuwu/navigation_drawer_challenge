@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:navigation_drawer_challenge/src/core/constants/constants.dart';
+import '../constants/constants.dart' show accentColor;
 
 class RevealAnimation extends AnimatedWidget {
   const RevealAnimation({
@@ -14,7 +14,7 @@ class RevealAnimation extends AnimatedWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      color: kAccentColor,
+      color: accentColor,
       height: height.value,
     );
   }

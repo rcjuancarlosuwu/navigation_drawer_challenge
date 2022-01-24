@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import 'package:navigation_drawer_challenge/src/core/theme/theme.dart'
+    show filterByTitleStyle;
 
 class FilterByTitle extends StatelessWidget {
-  const FilterByTitle({
-    Key? key,
-  }) : super(key: key);
+  const FilterByTitle({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +15,12 @@ class FilterByTitle extends StatelessWidget {
         children: [
           Text(
             'ALL PRODUCTS',
-            style: GoogleFonts.nunito(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
+            style: filterByTitleStyle,
           ),
-          const Icon(Icons.keyboard_arrow_down_rounded, color: Colors.black)
+          const Icon(
+            Icons.keyboard_arrow_down_rounded,
+            color: Colors.black,
+          )
         ],
       ),
     );

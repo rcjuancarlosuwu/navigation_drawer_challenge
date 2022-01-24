@@ -28,29 +28,25 @@ const products = [
    * Wrist Watches
    */
   Product(
-    name: 'FRIEND ARTY',
-    subname: 'DIAMONDS',
+    name: 'FRIEND ARTY DIAMONDS',
     price: '2,300',
     image: 'assets/images/wrist_watches/1.png',
     productCategory: ProductCategory.wristWatch,
   ),
   Product(
-    name: 'FLOATING',
-    subname: 'TOURBILLON',
+    name: 'FLOATING TOURBILLON',
     price: '1,700',
     image: 'assets/images/wrist_watches/2.png',
     productCategory: ProductCategory.wristWatch,
   ),
   Product(
-    name: 'MADEMOISELLE',
-    subname: 'PRIVÉ',
+    name: 'MADEMOISELLE PRIVÉ',
     price: '1,800',
     image: 'assets/images/wrist_watches/3.png',
     productCategory: ProductCategory.wristWatch,
   ),
   Product(
-    name: 'PREMIÈRE',
-    subname: 'ROCK',
+    name: 'PREMIÈRE ROCK',
     price: '1,300',
     image: 'assets/images/wrist_watches/4.png',
     productCategory: ProductCategory.wristWatch,
@@ -59,29 +55,25 @@ const products = [
    * Leather Goods
    */
   Product(
-    name: 'VANITY WITH',
-    subname: 'CHAIN',
+    name: 'VANITY WITH CHAIN',
     price: '3,600',
     image: 'assets/images/leather_goods/1.png',
     productCategory: ProductCategory.leatherGoods,
   ),
   Product(
-    name: 'AIRPODS PRO',
-    subname: 'CASE',
+    name: 'AIRPODS PRO CASE',
     price: '2,550',
     image: 'assets/images/leather_goods/2.png',
     productCategory: ProductCategory.leatherGoods,
   ),
   Product(
-    name: 'CLASSIC BELT',
-    subname: 'BAG',
+    name: 'CLASSIC BELT BAG',
     price: '2,675',
     image: 'assets/images/leather_goods/3.png',
     productCategory: ProductCategory.leatherGoods,
   ),
   Product(
-    name: 'CLASSIC WALLET',
-    subname: 'ON CHAIN',
+    name: 'CLASSIC WALLET ON CHAIN',
     price: '2,950',
     image: 'assets/images/leather_goods/4.png',
     productCategory: ProductCategory.leatherGoods,
@@ -90,29 +82,25 @@ const products = [
    * Perfumes
    */
   Product(
-    name: 'EAU DE TOILETTE',
-    subname: 'SPRAY',
+    name: 'EAU DE TOILETTE SPRAY',
     price: '120',
     image: 'assets/images/perfumes/1.png',
     productCategory: ProductCategory.perfume,
   ),
   Product(
-    name: 'EAU DE PARFUM',
-    subname: 'SPRAY',
+    name: 'EAU DE PARFUM SPRAY',
     price: '105',
     image: 'assets/images/perfumes/2.png',
     productCategory: ProductCategory.perfume,
   ),
   Product(
-    name: 'BODY SHOWER',
-    subname: 'GEL',
+    name: 'PARIS BIARRITZ PARFUM',
     price: '350',
     image: 'assets/images/perfumes/3.png',
     productCategory: ProductCategory.perfume,
   ),
   Product(
-    name: 'DEODORANT',
-    subname: 'STICK',
+    name: 'BLEU DE CHANEL DEODORANT',
     price: '260',
     image: 'assets/images/perfumes/4.png',
     productCategory: ProductCategory.perfume,
@@ -121,29 +109,25 @@ const products = [
    * Jewellery
    */
   Product(
-    name: 'CAMÉLIA',
-    subname: 'PRÉCIEUX',
+    name: 'CAMÉLIA PRÉCIEUX',
     price: '18,550',
     image: 'assets/images/jewellery/1.png',
     productCategory: ProductCategory.jewellery,
   ),
   Product(
-    name: 'COCO CRUSH',
-    subname: 'BRACELET',
+    name: 'COCO CRUSH BRACELET',
     price: '7,550',
     image: 'assets/images/jewellery/2.png',
     productCategory: ProductCategory.jewellery,
   ),
   Product(
-    name: 'BOUTON DE',
-    subname: 'CAMÉLIA',
+    name: 'BOUTON DE CAMÉLIA',
     price: '6,300',
     image: 'assets/images/jewellery/3.png',
     productCategory: ProductCategory.jewellery,
   ),
   Product(
-    name: 'COCO CRUSH',
-    subname: 'RING',
+    name: 'COCO CRUSH RING',
     price: '3,600',
     image: 'assets/images/jewellery/4.png',
     productCategory: ProductCategory.jewellery,
@@ -152,29 +136,25 @@ const products = [
    * Skincare
    */
   Product(
-    name: 'L’HUILE',
-    subname: 'DÉMAQUILLANTE',
+    name: 'L’HUILE DÉMAQUILLANTE',
     price: '50',
     image: 'assets/images/skincare/1.png',
     productCategory: ProductCategory.skincare,
   ),
   Product(
-    name: 'SUBLIMAGE LA',
-    subname: 'CRÈME YEUX',
+    name: 'SUBLIMAGE LA CRÈME YEUX',
     price: '260',
     image: 'assets/images/skincare/2.png',
     productCategory: ProductCategory.skincare,
   ),
   Product(
-    name: 'LE LIFT',
-    subname: 'CONCENTRÉ',
+    name: 'LE LIFT CONCENTRÉ',
     price: '130',
     image: 'assets/images/skincare/3.png',
     productCategory: ProductCategory.skincare,
   ),
   Product(
-    name: 'N°1 DE CHANEL',
-    subname: 'L’EAU ROUGE',
+    name: 'N°1 DE CHANEL L’EAU ROUGE',
     price: '110',
     image: 'assets/images/skincare/4.png',
     productCategory: ProductCategory.skincare,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'core/constants/constants.dart';
-import 'core/theme/app_theme.dart';
+import 'core/constants/constants.dart' show appName;
+import 'core/theme/theme.dart';
 import 'views/home.dart';
 
 class App extends StatelessWidget {
@@ -12,8 +12,8 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const Home(),
-      title: kAppTitle,
-      theme: ChanelTheme.light,
+      title: appName,
+      theme: channelTheme,
     );
   }
 }

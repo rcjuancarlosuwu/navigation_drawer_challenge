@@ -5,26 +5,31 @@ import 'package:navigation_drawer_challenge/src/core/constants/constants.dart';
 class CategoryAnimationController {
   final AnimationController controller;
   final Animation<double> onTapAnimation;
-  final Animation<double> hyphenMarginLeft;
+  final Animation<double> hyphenMarginAnimation;
 
   CategoryAnimationController(this.controller)
-      : onTapAnimation = Tween<double>(begin: 0, end: 0.6).animate(
+      : onTapAnimation = Tween<double>(
+          begin: 0,
+          end: 0.6,
+        ).animate(
           CurvedAnimation(
             parent: controller,
             curve: const Interval(0, 0.2),
           ),
         ),
-        hyphenMarginLeft =
-            Tween<double>(begin: kHyphenMarginLeft, end: 0).animate(
+        hyphenMarginAnimation = Tween<double>(
+          begin: hyphenMarginLeft,
+          end: 0,
+        ).animate(
           CurvedAnimation(
             parent: controller,
             curve: const Interval(0.2, 0.45),
           ),
         );
 
-  Animation<double> hyphenWidth(double width) {
+  Animation<double> hyphenWidthAnimation(double width) {
     return Tween<double>(
-      begin: kHyphenWidth,
+      begin: hyphenWidth,
       end: width,
     ).animate(CurvedAnimation(
       parent: controller,
@@ -32,7 +37,7 @@ class CategoryAnimationController {
     ));
   }
 
-  Animation<double> textColorAnimation(
+  Animation<double> optionColorAnimation(
     int charIndex,
     int length,
   ) {
@@ -41,7 +46,10 @@ class CategoryAnimationController {
     final charSection = ((charEnd - wordBegin) / length) * charIndex;
     final charBegin = wordBegin + charSection;
 
-    return Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(
+    return Tween<double>(
+      begin: 0,
+      end: 1,
+    ).animate(CurvedAnimation(
       parent: controller,
       curve: Interval(charBegin, charEnd),
     ));
@@ -57,12 +65,12 @@ class CategoryAnimationController {
     ));
   }
 
-  Animation<Offset> textUpAnimation(int index) {
+  Animation<Offset> productTextAnimation(int index) {
     final begin = 0.77 + (index * 0.02);
     final end = 0.9 + (index * 0.033);
 
     return Tween<Offset>(
-      begin: const Offset(0, 40),
+      begin: const Offset(0, 50),
       end: const Offset(0, 0),
     ).animate(CurvedAnimation(
       parent: controller,

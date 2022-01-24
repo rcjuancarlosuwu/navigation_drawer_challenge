@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:navigation_drawer_challenge/src/core/constants/constants.dart';
+import 'package:navigation_drawer_challenge/src/core/constants/constants.dart'
+    show categoryAnimationDuration, drawerAnimationDuration;
 import 'package:navigation_drawer_challenge/src/core/providers/providers.dart';
 
 import 'widgets/widgets.dart';
@@ -21,11 +22,11 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     drawerAnimationController = AnimationController(
-      duration: kDrawerAnimationDuration,
+      duration: drawerAnimationDuration,
       vsync: this,
     );
     categoryAnimationController = AnimationController(
-      duration: kCategoryAnimationDuration,
+      duration: categoryAnimationDuration,
       vsync: this,
     );
   }

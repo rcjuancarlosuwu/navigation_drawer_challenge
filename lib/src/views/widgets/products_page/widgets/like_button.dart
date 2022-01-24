@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LikeButton extends StatelessWidget {
-  const LikeButton({
-    Key? key,
-  }) : super(key: key);
+  const LikeButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +14,7 @@ class LikeButton extends StatelessWidget {
 }
 
 class _LikeIcon extends StatelessWidget {
-  const _LikeIcon({
-    Key? key,
-  }) : super(key: key);
+  const _LikeIcon({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:navigation_drawer_challenge/src/core/constants/constants.dart';
+import 'package:navigation_drawer_challenge/src/core/constants/constants.dart'
+    show accentColor, searchIcon;
 
 class SearchButton extends StatelessWidget {
-  const SearchButton({
-    Key? key,
-  }) : super(key: key);
+  const SearchButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +20,7 @@ class SearchButton extends StatelessWidget {
 }
 
 class _SearchIcon extends StatelessWidget {
-  const _SearchIcon({
-    Key? key,
-  }) : super(key: key);
+  const _SearchIcon({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +31,13 @@ class _SearchIcon extends StatelessWidget {
         shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(
-            color: kAccentColor.withOpacity(0.2),
+            color: accentColor.withOpacity(0.2),
             offset: const Offset(0, 5),
             blurRadius: 4,
           ),
         ],
       ),
-      child: Image.asset(kSearchIcon),
+      child: Image.asset(searchIcon),
     );
   }
 }

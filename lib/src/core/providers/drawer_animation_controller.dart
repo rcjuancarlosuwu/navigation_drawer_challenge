@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class DrawerAnimationController {
   final AnimationController controller;
   final Animation<double> drawerIconButtonAnimation;
-  final Animation<double> drawerButtonSplash;
+  final Animation<double> drawerButtonSplashAnimation;
   final Animation<Offset> drawerSliderAnimation;
 
   DrawerAnimationController(this.controller)
-      : drawerButtonSplash = Tween<double>(begin: 0, end: .5).animate(
+      : drawerButtonSplashAnimation = Tween<double>(begin: 0, end: .5).animate(
           CurvedAnimation(
             parent: controller,
             curve: const Interval(0, 0.2),

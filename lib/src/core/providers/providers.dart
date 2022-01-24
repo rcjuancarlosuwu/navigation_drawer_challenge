@@ -32,19 +32,18 @@ final topPanelHeightProvider = StateNotifierProvider<TopPanelHeight, double>(
 final bottomPanelHeightProvider =
     Provider.family<double, double>((ref, height) {
   final topContainerHeight = ref.watch(topPanelHeightProvider);
-  return height - topContainerHeight + kHyphenHeight;
-});
-
-final childAspectRatioProvider = Provider.family<double, double>((ref, height) {
-  final d = height <= 760 ? 2.2 : 2;
-  return 1 / d;
+  return height - topContainerHeight + hyphenHeight;
 });
 
 final filteredProductsProvider = StateProvider<List<Product>>((ref) {
+  // Only select and listen productCategory of ProductCategoryOption
   final category = ref.watch(
     productCategoryOptionProvider.select((e) => e.productCategory),
   );
-  final filteredProducts =
-      products.where((e) => e.productCategory == category).toList();
+
+  final filteredProducts = products
+      .where((e) => e.productCategory == category)
+      .toList(growable: false);
+
   return filteredProducts;
 });
